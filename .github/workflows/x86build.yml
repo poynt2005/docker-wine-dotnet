@@ -2,14 +2,14 @@ name: x86build
 on:
   push:
     branches:
-      - master
+      - dotnet48
 jobs:
   auto_build:
     name: Auto Build x86/Linux images
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@dotnet48
       - name: build docker
         env:
           DOCKERUSR: ${{ secrets.DOCKERUSR }}
