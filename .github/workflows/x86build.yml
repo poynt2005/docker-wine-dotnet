@@ -17,7 +17,7 @@ jobs:
           DOCKERUSR: ${{ secrets.DOCKERUSR }}
         run: |
           echo "Build Docker"
-          docker build -t ${DOCKERUSR}/docker-wine-dotnet:dotnet48 -f dockerfile .
+          docker build -t ${DOCKERUSR}/docker-wine-dotnet:dotnet48 -f Dockerfile .
       - name: push to docker hub
         env:
           DOCKERUSR: ${{ secrets.DOCKERUSR }}
