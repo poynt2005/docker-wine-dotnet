@@ -1,5 +1,4 @@
-ARG WINE_BRANCH "stable"
-FROM scottyhardy/docker-wine:${WINE_BRANCH}
+FROM scottyhardy/docker-wine:stable-8.0.1
 
 ARG WINE_ARCH "win32"
 
