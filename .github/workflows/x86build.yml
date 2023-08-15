@@ -9,7 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@dotnet48
+        uses: actions/checkout@v3
+        with:
+          ref: 'dotnet48'
       - name: build docker
         env:
           DOCKERUSR: ${{ secrets.DOCKERUSR }}
