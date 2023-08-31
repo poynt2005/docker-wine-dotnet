@@ -1,7 +1,5 @@
 FROM poynt2005/docker-wine-dotnet:dotnet48 AS dotnet-base
 
-WORKDIR /progress
-
 RUN apt update
 RUN apt install imagemagick xdotool -y 
 
