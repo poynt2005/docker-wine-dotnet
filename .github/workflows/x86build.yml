@@ -2,7 +2,7 @@ name: x86build
 on:
   push:
     branches:
-      - dotnet48
+      - webview2
 jobs:
   auto_build:
     name: Auto Build x86/Linux images
