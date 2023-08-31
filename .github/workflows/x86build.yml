@@ -11,13 +11,14 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
         with:
-          ref: 'dotnet48'
+          ref: "webview2"
       - name: build docker
         env:
           DOCKERUSR: ${{ secrets.DOCKERUSR }}
         run: |
           echo "Build Docker"
-          docker build -t ${DOCKERUSR}/docker-wine-dotnet:dotnet48 -f Dockerfile .
+          wget https://github.com/poynt2005/docker-wine-dotnet/releases/download/0.0/webview2.exe -O webview2.exe
+          docker build -t ${DOCKERUSR}/docker-wine-dotnet:webview2 -f Dockerfile .
       - name: push to docker hub
         env:
           DOCKERUSR: ${{ secrets.DOCKERUSR }}
@@ -26,4 +27,4 @@ jobs:
           echo "Docker Hub login"
           docker login --username ${DOCKERUSR} --password ${DOCKERPASS}
           echo "Push image"
-          docker push ${DOCKERUSR}/docker-wine-dotnet:dotnet48
+          docker push ${DOCKERUSR}/docker-wine-dotnet:webview2

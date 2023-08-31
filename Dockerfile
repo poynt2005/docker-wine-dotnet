@@ -1,21 +1,12 @@
-FROM scottyhardy/docker-wine:stable-8.0.1
+FROM poynt2005/docker-wine-dotnet:dotnet48 AS dotnet-base
 
+WORKDIR /progress
 
-ENV WINEDEBUG "fixme-all"
-ENV RUN_AS_ROOT "yes"
-ENV USE_XVFB "yes"
-ENV XVFB_SERVER ":95"
-ENV XVFB_SCREEN "0"
-ENV XVFB_RESOLUTION "1024x768x8"
-ENV DISPLAY ":95"
-ENV WINEARCH "win32"
+RUN apt update
+RUN apt install imagemagick xdotool -y 
 
-RUN set -x -e; \
-    entrypoint wineboot --init; \
-    while true; do \
-      if timeout 30m winetricks --unattended --force cmd dotnet20 dotnet472 dotnet48 d3dx9_43 corefonts; then \
-        break; \
-      fi \
-    done; \
-    while pgrep wineserver >/dev/null; do echo "Waiting for wineserver"; sleep 1; done; \
-    rm -rf $HOME/.cache/winetricks;
+COPY xvfb_checker.py change_win_version.py webview2.exe ./
+
+COPY try_install.py ./
+
+RUN python3 try_install.py
