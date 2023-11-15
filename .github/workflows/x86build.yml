@@ -2,7 +2,7 @@ name: x86build
 on:
   push:
     branches:
-      - dotnet48
+      - dotnet48-devel
 jobs:
   auto_build:
     name: Auto Build x86/Linux images
@@ -11,13 +11,13 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
         with:
-          ref: 'dotnet48'
+          ref: "dotnet48-devel"
       - name: build docker
         env:
           DOCKERUSR: ${{ secrets.DOCKERUSR }}
         run: |
           echo "Build Docker"
-          docker build -t ${DOCKERUSR}/docker-wine-dotnet:dotnet48 -f Dockerfile .
+          docker build -t ${DOCKERUSR}/docker-wine-dotnet:dotnet48-devel -f Dockerfile .
       - name: push to docker hub
         env:
           DOCKERUSR: ${{ secrets.DOCKERUSR }}
@@ -26,4 +26,4 @@ jobs:
           echo "Docker Hub login"
           docker login --username ${DOCKERUSR} --password ${DOCKERPASS}
           echo "Push image"
-          docker push ${DOCKERUSR}/docker-wine-dotnet:dotnet48
+          docker push ${DOCKERUSR}/docker-wine-dotnet:dotnet48-devel
