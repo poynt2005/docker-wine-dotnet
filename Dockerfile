@@ -1,4 +1,4 @@
-FROM scottyhardy/docker-wine:devel-8.19
+FROM scottyhardy/devel-9.6-20240414
 
 
 ENV WINEDEBUG "fixme-all"
