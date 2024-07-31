@@ -2,7 +2,7 @@ name: x86build
 on:
   push:
     branches:
-      - webview2
+      - webview2-wine96
 jobs:
   auto_build:
     name: Auto Build x86/Linux images
