@@ -1,0 +1,17 @@
+[
+    {
+        "Description": "Wait for uninstaller launch",
+        "Command": "echo 'Waiting launch...'",
+        "SleepTime": 10
+    },
+    {
+        "Description": "ScreenShot for debugging",
+        "Command": "import -window root uninstaller_info.png && mv *.png /debug",
+        "SleepTime": 1
+    },
+    {
+        "Description": "Confirming...",
+        "Command": "xdotool mousemove 296 440 click 1",
+        "SleepTime": 1
+    }
+]

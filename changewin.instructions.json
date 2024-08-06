@@ -1,0 +1,52 @@
+[
+    {
+        "Description": "Wait for winecfg launch",
+        "Command": "echo 'Waiting launch...'",
+        "SleepTime": 10
+    },
+    {
+        "Description": "ScreenShot for debugging",
+        "Command": "import -window root changeWindows0.png && mv *.png /debug",
+        "SleepTime": 1
+    },
+    {
+        "Description": "Click WindowsOS Selection",
+        "Command": "xdotool mousemove 217 400 click 1",
+        "SleepTime": 4
+    },
+    {
+        "Description": "ScreenShot for debugging",
+        "Command": "import -window root changeWindows.png && mv *.png /debug",
+        "SleepTime": 1
+    },
+    {
+        "Description": "Choose Windows 11",
+        "Command": "xdotool mousemove 202 419 click 1",
+        "SleepTime": 4
+    },
+    {
+        "Description": "ScreenShot for debugging",
+        "Command": "import -window root changeWindows1.png && mv *.png /debug",
+        "SleepTime": 1
+    },
+    {
+        "Description": "Confirming...",
+        "Command": "xdotool mousemove 212 458 click 1",
+        "SleepTime": 1
+    },
+    {
+        "Description": "Wait for winecfg launch again",
+        "Command": "winecfg &",
+        "SleepTime": 10
+    },
+    {
+        "Description": "ScreenShot for debugging",
+        "Command": "import -window root changeWindows2.png && mv *.png /debug",
+        "SleepTime": 1
+    },
+    {
+        "Description": "Confirming...",
+        "Command": "xdotool mousemove 212 458 click 1",
+        "SleepTime": 1
+    }
+]
