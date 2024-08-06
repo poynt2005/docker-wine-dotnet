@@ -81,5 +81,3 @@ RUN ./WineTools -v "InstallApp" --install-command "winecfg" --instruction-file "
 RUN ./WineTools -v "InstallApp" --install-command "./WebviewInstallHelper -v \"Install\" --install-path \"webview2_evergreen.exe\"" \
     && wine Webview2DetectionHelper_i386.exe webview2loader_i386.dll && cat 9c7d6346-ca8d-4340-b514-0339e498a37d.txt \
     && ./WineTools -v "InstallApp" --install-command "wine uninstaller" --instruction-file "taskuninstallerscreenshot.instructions.json"
-RUN wine Webview2DetectionHelper_i386.exe webview2loader_i386.dll && cat 9c7d6346-ca8d-4340-b514-0339e498a37d.txt
-
